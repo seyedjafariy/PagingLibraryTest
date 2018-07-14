@@ -16,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layoutManager="android.support.v7.widget.LinearLayoutManager"
         tools:listitem="@layout/row_photo"
+        android:scrollbars="vertical"
         tools:orientation="vertical"/>
 
 </android.support.constraint.ConstraintLayout>

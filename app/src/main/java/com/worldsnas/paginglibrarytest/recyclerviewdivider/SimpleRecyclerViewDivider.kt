@@ -12,6 +12,5 @@ class SimpleRecyclerViewDivider constructor(val left: Int = 0, val right: Int = 
         outRect?.right = right
         outRect?.left = left
         outRect?.bottom = bottom
-        super.getItemOffsets(outRect, view, parent, state)
     }
 }

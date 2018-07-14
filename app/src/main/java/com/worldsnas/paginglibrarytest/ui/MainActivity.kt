@@ -41,7 +41,8 @@ class MainActivity : DaggerAppCompatActivity() {
         photosAdapter = photosAdapterProvider.get()
         recyclerMainPhotoList.layoutManager = LinearLayoutManager(this)
         recyclerMainPhotoList.adapter = photosAdapter
-        recyclerMainPhotoList.addItemDecoration(SimpleRecyclerViewDivider(bottom = 16))
+        recyclerMainPhotoList.addItemDecoration(SimpleRecyclerViewDivider(left = 16, right = 16, bottom = 16))
+        recyclerMainPhotoList.addItemDecoration(SimpleRecyclerViewDivider(top = 16), 0)
     }
 
     private fun handleState(state: MainActivityState?) {
