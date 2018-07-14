@@ -13,6 +13,7 @@ interface AppComponent : AndroidInjector<App> {
 
     @Component.Builder
     abstract class Builder : AndroidInjector.Builder<App>() {
+        abstract fun moudle(appModule : AppModule): Builder
         abstract override fun build(): AppComponent
     }
 

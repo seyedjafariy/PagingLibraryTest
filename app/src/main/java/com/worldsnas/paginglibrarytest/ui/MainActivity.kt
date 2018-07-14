@@ -29,7 +29,7 @@ class MainActivity : DaggerAppCompatActivity() {
 
         viewModel = ViewModelProviders.of(this, viewModelProviderFactory).get(MainActivityViewModel::class.java)
 
-        if (savedInstanceState != null) {
+        if (savedInstanceState == null) {
             viewModel.getPageList()
         }
 

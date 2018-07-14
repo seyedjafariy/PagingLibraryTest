@@ -14,11 +14,12 @@ class PhotoDataSource @Inject constructor(val restManager: RestManager, val comp
     override fun invalidate() {
         super.invalidate()
         compositeDisposable.clear()
+        Timber.d("photo data source invalidate called")
     }
 
     override fun loadInitial(params: LoadInitialParams<Int>, callback: LoadInitialCallback<Int, Photo>) {
         val disposable = restManager.getPopularPhotos(1, params.requestedLoadSize)
-                .onErrorReturnItem(emptyList())
+//                .onErrorReturnItem(emptyList())
                 .subscribeOn(schedulersFacade.io())
                 .subscribe({
                     callback.onResult(it, null, 2)

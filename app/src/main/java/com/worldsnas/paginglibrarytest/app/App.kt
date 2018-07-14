@@ -1,6 +1,7 @@
 package com.worldsnas.paginglibrarytest.app
 
 import android.app.Activity
+import com.worldsnas.paginglibrarytest.app.di.AppModule
 import com.worldsnas.paginglibrarytest.app.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -21,6 +22,6 @@ class App : DaggerApplication(){
     }
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        return DaggerAppComponent.builder().create(this)
+        return DaggerAppComponent.builder().moudle(AppModule).create(this)
     }
 }
