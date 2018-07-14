@@ -1,5 +1,6 @@
 package com.worldsnas.paginglibrarytest.ui
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -28,9 +29,12 @@ class MainActivity : DaggerAppCompatActivity() {
 
         viewModel = ViewModelProviders.of(this, viewModelProviderFactory).get(MainActivityViewModel::class.java)
 
-
+        if (savedInstanceState != null) {
+            viewModel.getPageList()
+        }
 
         initRecycler()
+        viewModel.stateLiveData.observe(this, Observer<MainActivityState> { handleState(it) })
     }
 
     private fun initRecycler() {
@@ -38,5 +42,13 @@ class MainActivity : DaggerAppCompatActivity() {
         recyclerMainPhotoList.layoutManager = LinearLayoutManager(this)
         recyclerMainPhotoList.adapter = photosAdapter
         recyclerMainPhotoList.addItemDecoration(SimpleRecyclerViewDivider(bottom = 16))
+    }
+
+    private fun handleState(state: MainActivityState?) {
+        when (state?.status) {
+            MainActivityState.STATUS_SUCCESS -> photosAdapter.submitList(state.pagelistPhoto)
+
+        }
+
     }
 }
