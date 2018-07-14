@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <com.facebook.drawee.view.SimpleDraweeView
-        android:id="@+id/drawee_row_photo"
+        android:id="@+id/draweeRowPhoto"
         app:roundedCornerRadius="20dp"
         tools:background="@android:color/darker_gray"
         android:layout_width="0dp"

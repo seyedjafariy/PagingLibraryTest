@@ -37,7 +37,7 @@ object NetworkModule {
     @JvmStatic
     @Singleton
     @Provides
-    fun porovideApi(retrofit: Retrofit): Api {
+    fun provideApi(retrofit: Retrofit): Api {
         return retrofit.create(Api::class.java)
     }
 
