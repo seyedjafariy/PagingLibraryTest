@@ -12,9 +12,9 @@ import io.reactivex.disposables.CompositeDisposable
 import timber.log.Timber
 import javax.inject.Inject
 
-class MainActivityViewModel @Inject constructor(val photoDataSourceFactory: PhotoDataSourceFactory, val schedulersFacade: SchedulersFacade,
+class MainActivityViewModel @Inject constructor(val photoDataSourceFactory: PhotoDataSourceFactory, schedulersFacade: SchedulersFacade,
                                                 val compositeDisposable: CompositeDisposable) : ViewModel() {
-    private val config = PagedList.Config.Builder().setEnablePlaceholders(false).setInitialLoadSizeHint(20).setPageSize(15).setPrefetchDistance(5).build()
+    private val config = PagedList.Config.Builder().setEnablePlaceholders(true).setInitialLoadSizeHint(20).setPageSize(15).setPrefetchDistance(5).build()
 
     private val loadDataObservable = RxPagedListBuilder<Int, Photo>(photoDataSourceFactory, config)
             .setFetchScheduler(schedulersFacade.io())
